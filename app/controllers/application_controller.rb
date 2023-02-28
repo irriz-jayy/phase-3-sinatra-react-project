@@ -38,5 +38,14 @@ class ApplicationController < Sinatra::Base
     
     blog.to_json
   end  
+
+  patch "/blogs/:id" do
+    blog=Blog.find(params[:id])
+    blog.update(
+      title: params[:title],
+      content: params[:content]
+    )
+    blog.to_json
+  end
   
 end
