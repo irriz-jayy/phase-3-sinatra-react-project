@@ -23,19 +23,20 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/blogs" do
-    # Get the currently logged in user or create a new one
-    author = Author.find_by(id: session[:author_id]) || Author.create(name: Faker::Name.name)
-  
-    # Create the new blog post with the author_id
+    # get all existing authors
+    authors = Author.all
+    
+    # randomly select an author
+    author = authors.sample
+    
+    # create the new blog post with the selected author
     blog = Blog.create(
       title: params[:title],
       content: params[:content],
       author_id: author.id
     )
-  
-    # Return the new blog post as JSON
+    
     blog.to_json
-  end
-  
+  end  
   
 end
