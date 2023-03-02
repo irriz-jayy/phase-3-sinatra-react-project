@@ -9,7 +9,7 @@ end
 20.times do
     Blog.create(
         title: Faker::Book.title,
-        content: Faker::Lorem.paragraph,
+        content:Faker::Lorem.paragraph_by_chars(number: 300),
         author_id: rand(Author.first.id..Author.last.id)
     )
 end

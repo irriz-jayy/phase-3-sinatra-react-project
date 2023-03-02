@@ -7,11 +7,11 @@ class ApplicationController < Sinatra::Base
   # Add your routes here
   get "/" do
     {message: "Hello"}.to_json
-  end
+  end    
 
-  use BlogsController
   use AuthorsController
-
-  
-    
+  use BlogsController
 end
+
+
+
