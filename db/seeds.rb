@@ -1,10 +1,13 @@
-puts "🌱 Seeding spices..."
+puts "🌱 Seeding authors..."
 
 # Seed your database here
 
 20.times do
     Author.create(name: Faker::Name.name)
 end
+
+puts "✅ Done seeding!"
+puts "🌱 Seeding blogs..."
 
 20.times do
     Blog.create(
